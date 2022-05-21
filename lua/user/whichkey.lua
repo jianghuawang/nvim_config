@@ -25,7 +25,9 @@ local setup = {
   },
   -- add operators that will trigger motion and text object completion
   -- to enable all native operators, set the preset / operators plugin above
-  -- operators = { gc = "Comments" },
+  operators = {
+    -- gc = "Comments",
+  },
   key_labels = {
     -- override the label used to display some keys. It doesn't effect WK in any other way.
     -- For example:
@@ -180,8 +182,39 @@ local mappings = {
     f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
     h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
     v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
+    b = { "<cmd>SymbolsOutline<cr>", "Symbols" }
   },
+  d = {
+    name = "Debug",
+    b = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Toggle BreakPoint" },
+    c = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
+    n = { "<cmd>lua require'dap'.step_over()<cr>", "Step Over" },
+    s = { "<cmd>lua require'dap'.step_into()<cr>", "Step Into" },
+    t = { "<cmd>lua require'dapui'.toggle()<cr>", "Toggle REPL" },
+    o = { "<cmd>lua require'dap'.step_out()<cr>", "Step Out" }
+  }
 }
 
 which_key.setup(setup)
 which_key.register(mappings, opts)
+
+
+which_key.register({
+  ["gs"] = {
+    name = "hop",
+    f = {"<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true })<cr>", "find-char-forword"},
+    F = {"<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true })<cr>", "find-char-backword"},
+    T = {"<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true, offsets = {column=1} })<cr>", "until-char-forword"},
+    t = {"<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true, offsets = {column=-1} })<cr>", "until-char-backword"},
+    w = {"<cmd> lua require'hop'.hint_words({ current_line_only = true })<cr>", "find-word-inline"},
+    j = {"<cmd> lua require'hop'.hint_lines_skip_whitespace({direction = require'hop.hint'.HintDirection.AFTER_CURSOR})<cr>", "line-below-start"},
+    k = {"<cmd> lua require'hop'.hint_lines_skip_whitespace({direction = require'hop.hint'.HintDirection.BEFORE_CURSOR})<cr>", "line-above-start"},
+    s = {"<cmd> lua require'hop'.hint_patterns()<cr>", "pattern-search"},
+    u = {"<cmd> lua require'hop'.hint_char1()<cr>", "unigram-search"},
+    b = {"<cmd> lua require'hop'.hint_char2()<cr>", "bigram-search" }
+  },
+  ["gb"] = {
+    "<cmd>BufferLinePick<cr>",
+    "Buffer Picker",
+  }
+}, { mode = "n" })

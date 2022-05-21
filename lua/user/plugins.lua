@@ -58,10 +58,23 @@ return packer.startup(function(use)
   use "goolord/alpha-nvim"
   use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
   use "folke/which-key.nvim"
+  use "ellisonleao/glow.nvim"
+  use "ur4ltz/surround.nvim"
+  use {
+    "3699394/hop.nvim",
+    branch = "feature/cursor-offset",
+  }
+  use "xiyaowong/nvim-transparent"
 
   -- Colorschemes
-  -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
+  use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
   use "lunarvim/darkplus.nvim"
+  use "olimorris/onedarkpro.nvim"
+  use "mhartington/oceanic-next"
+  use ({
+    "catppuccin/nvim",
+    as = "catppuccin"
+  })
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
@@ -70,6 +83,7 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-cmdline" -- cmdline completions
   use "saadparwaiz1/cmp_luasnip" -- snippet completions
   use "hrsh7th/cmp-nvim-lsp"
+  use "simrat39/rust-tools.nvim"
 
   -- snippets
   use "L3MON4D3/LuaSnip" --snippet engine
@@ -89,10 +103,45 @@ return packer.startup(function(use)
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
   }
+
   use "JoosepAlviste/nvim-ts-context-commentstring"
 
   -- Git
   use "lewis6991/gitsigns.nvim"
+
+  -- tmux
+  use "aserowy/tmux.nvim"
+
+  -- mark
+  use 'chentoast/marks.nvim'
+
+  -- org-mode
+  use 'nvim-orgmode/orgmode'
+
+  -- Debug
+  use 'mfussenegger/nvim-dap'
+  use 'rcarriga/nvim-dap-ui'
+
+  use {
+    'glacambre/firenvim',
+    run = function() vim.fn['firenvim#install'](0) end
+  }
+
+  use 'norcalli/nvim-colorizer.lua'
+
+  use({
+    'mrjones2014/dash.nvim',
+    run = 'make install',
+  })
+
+  use {
+    'SmiteshP/nvim-gps',
+    requires = "nvim-treesitter/nvim-treesitter"
+  }
+
+  use 'simrat39/symbols-outline.nvim'
+
+  use 'karb94/neoscroll.nvim'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
