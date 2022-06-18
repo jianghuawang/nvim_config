@@ -83,7 +83,7 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-cmdline" -- cmdline completions
   use "saadparwaiz1/cmp_luasnip" -- snippet completions
   use "hrsh7th/cmp-nvim-lsp"
-  use "simrat39/rust-tools.nvim"
+  use 'simrat39/rust-tools.nvim'
 
   -- snippets
   use "L3MON4D3/LuaSnip" --snippet engine
@@ -123,17 +123,7 @@ return packer.startup(function(use)
   use 'mfussenegger/nvim-dap'
   use 'rcarriga/nvim-dap-ui'
 
-  use {
-    'glacambre/firenvim',
-    run = function() vim.fn['firenvim#install'](0) end
-  }
-
   use 'norcalli/nvim-colorizer.lua'
-
-  use({
-    'mrjones2014/dash.nvim',
-    run = 'make install',
-  })
 
   use {
     'SmiteshP/nvim-gps',
@@ -141,8 +131,6 @@ return packer.startup(function(use)
   }
 
   use 'simrat39/symbols-outline.nvim'
-
-  use 'karb94/neoscroll.nvim'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
