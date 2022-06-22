@@ -64,6 +64,8 @@ local function lsp_keymaps(bufnr)
   keymap(bufnr, "n", "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
 end
 
+local navic = require("nvim-navic")
+
 M.on_attach = function(client, bufnr)
   local status_cmp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
   if not status_cmp_ok then
@@ -88,6 +90,7 @@ M.on_attach = function(client, bufnr)
     return
   end
   illuminate.on_attach(client)
+  navic.attach(client, bufnr)
 end
 
 return M

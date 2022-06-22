@@ -125,13 +125,9 @@ return packer.startup(function(use)
 
   use 'norcalli/nvim-colorizer.lua'
 
-  use {
-    'SmiteshP/nvim-gps',
-    requires = "nvim-treesitter/nvim-treesitter"
-  }
-
   use 'simrat39/symbols-outline.nvim'
-
+  
+  use 'smiteshP/nvim-navic'
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
