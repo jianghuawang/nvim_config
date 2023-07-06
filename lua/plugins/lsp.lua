@@ -1,0 +1,45 @@
+return {}
+-- return {
+--   {
+--     "neovim/nvim-lspconfig",
+--     dependencies = {
+--       "simrat39/rust-tools.nvim",
+--     },
+--     opts = {
+--       servers = {
+--         -- inlay_hints = { enabled = true },
+--         sourcekit = {},
+--         rust_analyzer = {},
+--         pyright = {
+--           settings = {
+--             pyright = {
+--               disableLanguageServices = false,
+--               disableOrganizeImports = false,
+--             },
+--             python = {
+--               analysis = {
+--                 typeCheckingMode = "off",
+--                 autoImportCompletions = true,
+--                 autoSearchPaths = true,
+--                 useLibraryCodeForTypes = true,
+--               },
+--             },
+--           },
+--         },
+--       },
+--       setup = {
+--         -- rust_analyzer = function(_, opts)
+--         --   require("rust-tools").setup({ server = opts })
+--         --   return true
+--         -- end,
+--       },
+--     },
+--   },
+--   -- { import = "lazyvim.plugins.extras.dap.nlua" },
+--   { import = "lazyvim.plugins.extras.lang.go" },
+--   { import = "lazyvim.plugins.extras.lang.json" },
+--   { import = "lazyvim.plugins.extras.lang.rust" },
+--   { import = "lazyvim.plugins.extras.lang.typescript" },
+--   { import = "plugins.extras.lang.java" },
+--   { import = "plugins.extras.lang.nodejs" },
+-- }
